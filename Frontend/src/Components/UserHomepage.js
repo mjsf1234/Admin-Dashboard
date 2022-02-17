@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./UserHomepage.css";
 import axios from "./Axios";
-import DisplayTable from "./table";
+import DisplayTable from "./userTable";
 
 const UserHomepage = ({ loggedUser, setLoggedUser }) => {
   const INIT_UPLOAD_DATA = {
