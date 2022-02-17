@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import Userdata from "./models/Userdata.js";
 import User from "./models/Usersdb.js";
@@ -33,15 +35,14 @@ app.use(cors({ credentials: true, origin: true }));
 app.use(express.static(path.join(__dirname, "Public")));
 
 //__mongodb setup__________________________________
-const url =
-  "mongodb+srv://admin:SKd6tK5pAbQuSMqH@cluster0.4zyc7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
 mongoose
-  .connect(url, {
+  .connect(process.env.URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log("connected");
+    console.log("database connected");
   })
   .catch((e) => {
     console.log(e);
